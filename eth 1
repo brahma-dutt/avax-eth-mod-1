@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MyErrorsContract {
+    uint public myNumber = 10;
+
+    function customError1(uint input) public pure returns (uint) {
+        require(input > 10, "Please input a value greater than 10");
+        return input * 2;
+    }
+
+    function customError2(uint input) public returns (uint) {
+        myNumber = myNumber * 2;
+        if (input > 10) {
+            revert("Invalid input");
+        }
+        return myNumber;
+    }
+
+    function customError3(uint input) public returns (string memory) {
+        myNumber = myNumber * myNumber;
+        assert(input == 0);
+        return "Match found";
+    }
+        }
+    }
+}
